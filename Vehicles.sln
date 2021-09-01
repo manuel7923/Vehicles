@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles.Common", "Vehicles.Common\Vehicles.Common.csproj", "{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles.API", "Vehicles.API\Vehicles.API.csproj", "{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM32 = Debug|ARM32
+		Release|Any CPU = Release|Any CPU
+		Release|ARM32 = Release|ARM32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Debug|ARM32.ActiveCfg = Debug|ARM32
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Debug|ARM32.Build.0 = Debug|ARM32
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Release|ARM32.ActiveCfg = Release|ARM32
+		{EFE5E928-C68D-4937-8E94-F11D9DC4FAB3}.Release|ARM32.Build.0 = Release|ARM32
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Debug|ARM32.ActiveCfg = Debug|ARM32
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Debug|ARM32.Build.0 = Debug|ARM32
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Release|ARM32.ActiveCfg = Release|ARM32
+		{57ABE7F1-3BD7-443D-A1F8-2C6F51210A8D}.Release|ARM32.Build.0 = Release|ARM32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89F336C9-B1EF-4A7C-8262-6EE00FB2E517}
+	EndGlobalSection
+EndGlobal
