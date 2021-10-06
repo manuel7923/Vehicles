@@ -60,7 +60,7 @@ namespace Vehicles.API.Models
 
         [Display(Name = "Foto")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://localhost:44311/images/noimage.png"
+            ? $"https://vehiclesapifirst.azurewebsites.net/images/noimage.png"
             : $"https://vehiclesjose.blob.core.windows.net/users/{ImageId}";
 
     }

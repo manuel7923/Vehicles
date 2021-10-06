@@ -12,8 +12,8 @@ using Vehicles.API.Data.Entities;
 
 namespace Vehicles.API.Controllers.API
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class ProceduresController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace Vehicles.API.Controllers.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Procedure>>> GetProcedures()
         {
-            return await _context.Procedures.ToListAsync();
+            return await _context.Procedures.OrderBy(x => x.Description).ToListAsync();
         }
 
         // GET: api/Procedures/5
@@ -60,20 +60,23 @@ namespace Vehicles.API.Controllers.API
             try
             {
                 await _context.SaveChangesAsync();
+                return NoContent();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateException dbUpdateException)
             {
-                if (!ProcedureExists(id))
+                if (dbUpdateException.InnerException.Message.Contains("duplicate"))
                 {
-                    return NotFound();
+                    return BadRequest("Ya existe este procedimiento.");
                 }
                 else
                 {
-                    throw;
+                    return BadRequest(dbUpdateException.InnerException.Message);
                 }
             }
-
-            return NoContent();
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
         }
 
         // POST: api/Procedures
@@ -82,9 +85,27 @@ namespace Vehicles.API.Controllers.API
         public async Task<ActionResult<Procedure>> PostProcedure(Procedure procedure)
         {
             _context.Procedures.Add(procedure);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProcedure", new { id = procedure.Id }, procedure);
+            try
+            {
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetProcedure", new { id = procedure.Id }, procedure);
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                if (dbUpdateException.InnerException.Message.Contains("duplicate"))
+                {
+                    return BadRequest("Ya existe este procedimiento.");
+                }
+                else
+                {
+                    return BadRequest(dbUpdateException.InnerException.Message);
+                }
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
         }
 
         // DELETE: api/Procedures/5
@@ -101,11 +122,6 @@ namespace Vehicles.API.Controllers.API
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
-
-        private bool ProcedureExists(int id)
-        {
-            return _context.Procedures.Any(e => e.Id == id);
         }
     }
 }

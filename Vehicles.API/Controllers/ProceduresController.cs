@@ -11,7 +11,6 @@ using Vehicles.API.Data.Entities;
 
 namespace Vehicles.API.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProceduresController : Controller
     {
         private readonly DataContext _context;
